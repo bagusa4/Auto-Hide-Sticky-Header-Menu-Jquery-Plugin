@@ -71,12 +71,13 @@
 
 		if( !$element.length ) return true;
 
-		if( opts.autohidestickyType == "lazy") {
 		var $window			= $( window ),
 			wHeight			= 0,
 			wScrollCurrent	= 0,
 			wScrollBefore	= 0,
 			wScrollDiff		= 0,
+			elHeight		= 0,
+			elTop			= 0,
 			$document		= $( document ),
 			dHeight			= 0,
 
@@ -98,7 +99,8 @@
 					}
 				};
 			};
-
+			
+		if( opts.autohidestickyType == "lazy") {
 		$window.on( 'scroll', throttle( throttleTimeout, function()
 		{
 			dHeight			= $document.height();
@@ -128,16 +130,6 @@
 		} // Lazy+ Mode
 		
 		if( opts.autohidestickyType == "active") {
-		var elHeight		= 0,
-			elTop			= 0,
-			$document		= $( document ),
-			dHeight			= 0,
-			$window			= $( window ),
-			wHeight			= 0,
-			wScrollCurrent	= 0,
-			wScrollBefore	= 0,
-			wScrollDiff		= 0;
-
 		$window.on( 'scroll', function()
 		{
 			elHeight		= $element.outerHeight();
